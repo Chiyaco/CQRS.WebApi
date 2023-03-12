@@ -1,6 +1,5 @@
 using CQRS.WebApi.Data;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,10 +29,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    // using var scope = app.Services.CreateScope();
-    // ProductDbContext dbContext = scope.ServiceProvider.GetRequiredService<ProductDbContext>();
-    //
-    // dbContext.Database.EnsureCreated();
     app.UseSwagger();
     app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "v1"));
 }

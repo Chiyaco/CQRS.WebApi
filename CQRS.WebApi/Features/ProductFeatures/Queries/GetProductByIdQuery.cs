@@ -14,6 +14,7 @@ namespace CQRS.WebApi.Features.ProductFeatures.Queries
         {
             private readonly IProductDbContext _context;
 
+
             public GetProductByIdQueryHandler(IProductDbContext dbContext)
             {
                 _context = dbContext;
