@@ -13,11 +13,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaaSPlatform.Domain", "SaaS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaaSPlatform.Application", "SaaSPlatform.Application\SaaSPlatform.Application.csproj", "{C8C9F062-68CF-40E0-8EE7-269DA3A07DF5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaaSPlatform.Infrastructure", "SaaSPlatform.Infrastructure\SaaSPlatform.Infrastructure.csproj", "{01F8BCCC-77C9-4DB4-BB8E-F0B778E70DE1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaaSPlatform.Domain.Tests", "SaaSPlatform.Domain.Tests\SaaSPlatform.Domain.Tests.csproj", "{A6560CE3-EC26-4CA1-B41B-C597E87C3367}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaaSPlatform.Application.Tests", "SaaSPlatform.Application.Tests\SaaSPlatform.Application.Tests.csproj", "{47BD9698-C114-4187-A007-BB5C5925F90B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaaSPlatform.Infrastructure.Persistence", "SaaSPlatform.Infrastructure.Persistence\SaaSPlatform.Infrastructure.Persistence.csproj", "{22595963-2B90-4C4C-AD9D-F1805D547F8D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +37,6 @@ Global
 		{C8C9F062-68CF-40E0-8EE7-269DA3A07DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8C9F062-68CF-40E0-8EE7-269DA3A07DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8C9F062-68CF-40E0-8EE7-269DA3A07DF5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{01F8BCCC-77C9-4DB4-BB8E-F0B778E70DE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01F8BCCC-77C9-4DB4-BB8E-F0B778E70DE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01F8BCCC-77C9-4DB4-BB8E-F0B778E70DE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01F8BCCC-77C9-4DB4-BB8E-F0B778E70DE1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6560CE3-EC26-4CA1-B41B-C597E87C3367}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A6560CE3-EC26-4CA1-B41B-C597E87C3367}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6560CE3-EC26-4CA1-B41B-C597E87C3367}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,6 +45,10 @@ Global
 		{47BD9698-C114-4187-A007-BB5C5925F90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47BD9698-C114-4187-A007-BB5C5925F90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47BD9698-C114-4187-A007-BB5C5925F90B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22595963-2B90-4C4C-AD9D-F1805D547F8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22595963-2B90-4C4C-AD9D-F1805D547F8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22595963-2B90-4C4C-AD9D-F1805D547F8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22595963-2B90-4C4C-AD9D-F1805D547F8D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,9 +57,9 @@ Global
 		{BD68982D-9B4E-4004-B611-2D9BD9D6193E} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{1EC553C0-BAD1-474A-9A1C-471B914DFA94} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{C8C9F062-68CF-40E0-8EE7-269DA3A07DF5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
-		{01F8BCCC-77C9-4DB4-BB8E-F0B778E70DE1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{A6560CE3-EC26-4CA1-B41B-C597E87C3367} = {C462B248-A18F-4FD8-8231-59360FC711C4}
 		{47BD9698-C114-4187-A007-BB5C5925F90B} = {C462B248-A18F-4FD8-8231-59360FC711C4}
+		{22595963-2B90-4C4C-AD9D-F1805D547F8D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C0800298-588D-4455-A1FB-DE3C6B36B6A4}

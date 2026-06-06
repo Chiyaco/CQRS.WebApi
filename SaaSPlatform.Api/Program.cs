@@ -1,4 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using SaaSPlatform.Infrastructure.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("Default");
+
+    options.UseMySql(
+        connectionString,
+        ServerVersion.AutoDetect(connectionString));
+});
 
 // Add services to the container.
 

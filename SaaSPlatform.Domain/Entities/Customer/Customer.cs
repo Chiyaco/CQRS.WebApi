@@ -16,7 +16,7 @@ public class Customer : BaseEntity
         FirstName = firstName;
         LastName = lastName;
         Email = email;
-        CreatedDateTime = DateTime.Now;
+        CreatedDateTime = DateTime.UtcNow;
     }
 
     public void ChangeEmailAddress(Email email)

@@ -17,23 +17,24 @@ public class Order : BaseEntity
     {
         Id = Guid.NewGuid();
         CustomerId = customerId;
-        CreatedDateTime = DateTime.Now;
+        CreatedDateTime = DateTime.UtcNow;
     }
 
     public void AddItem(
-        Guid orderId,
         string productName,
         decimal unitPrice,
         int quantity)
     {
         if (quantity <= 0)
-            throw new ArgumentException();
+            throw new ArgumentException("Quantity must be > 0");
 
-        _items.Add(new OrderItem(
-            orderId,
-            productName,
-            unitPrice,
-            quantity));
+        if (unitPrice <= 0)
+            throw new ArgumentException("Unit price must be > 0");
+
+        if (string.IsNullOrWhiteSpace(productName))
+            throw new ArgumentException("Product name is required");
+
+        _items.Add(new OrderItem(productName, unitPrice, quantity));
     }
 
     public decimal GetTotal => _items.Sum(x => x.TotalPrice);

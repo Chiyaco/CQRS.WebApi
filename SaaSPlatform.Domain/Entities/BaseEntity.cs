@@ -17,6 +17,6 @@ public class BaseEntity
 
     protected void Touch()
     {
-        UpdatedDateTime = DateTime.Now;
+        UpdatedDateTime = DateTime.UtcNow;
     }
 }
