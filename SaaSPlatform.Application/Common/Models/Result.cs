@@ -1,4 +1,4 @@
-﻿namespace SaaSPlatform.Application.Models;
+﻿namespace SaaSPlatform.Application.Common.Models;
 
 public class Result
 {

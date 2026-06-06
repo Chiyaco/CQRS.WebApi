@@ -1,4 +1,4 @@
-﻿using SaaSPlatform.Application.Models;
+﻿using SaaSPlatform.Application.Common.Models;
 
 namespace SaaSPlatform.Application.Abstractions.Messaging;
 
