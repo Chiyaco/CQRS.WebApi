@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SaaSPlatform.Application\SaaSPlatform.Application.csproj" />
     <ProjectReference Include="..\SaaSPlatform.Domain\SaaSPlatform.Domain.csproj" />
   </ItemGroup>
 
