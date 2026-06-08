@@ -5,9 +5,9 @@ name: .NET
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "SaaSPlatform" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "SaaSPlatform" ]
 
 jobs:
   build:
