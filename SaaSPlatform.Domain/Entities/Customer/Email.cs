@@ -9,10 +9,10 @@ public sealed class Email
     public Email(string email)
     {
         if (string.IsNullOrWhiteSpace(email))
-            throw new ArgumentNullException("Email address is required");
+            throw new ArgumentNullException(nameof(email), "Email address is required");
 
         if (!IsValid(email))
-            throw new ArgumentException("The email address is not valid.");
+            throw new ArgumentException(nameof(email),"The email address is not valid.");
 
         Value = email;
     }

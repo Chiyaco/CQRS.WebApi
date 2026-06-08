@@ -26,16 +26,16 @@ public class Order : BaseEntity
         int quantity)
     {
         if (quantity <= 0)
-            throw new ArgumentException("Quantity must be > 0");
+            throw new ArgumentException(nameof(quantity), "Quantity must be > 0");
 
         if (unitPrice <= 0)
-            throw new ArgumentException("Unit price must be > 0");
+            throw new ArgumentException(nameof(unitPrice),"Unit price must be > 0");
 
         if (string.IsNullOrWhiteSpace(productName))
-            throw new ArgumentException("Product name is required");
+            throw new ArgumentException(nameof(productName), "Product name is required");
 
         _items.Add(new OrderItem(productName, unitPrice, quantity));
     }
 
-    public decimal GetTotal => _items.Sum(x => x.TotalPrice);
+    public decimal TotalAmount => _items.Sum(x => x.TotalPrice);
 }

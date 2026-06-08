@@ -13,7 +13,7 @@ public class Product : BaseEntity
         if (string.IsNullOrEmpty(name))
             throw new ArgumentException("Name is required.");
 
-        if (price < 0)
+        if (price <= 0)
             throw new ArgumentException("Price must be greater than zero.");
 
         Id = Guid.NewGuid();
