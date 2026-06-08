@@ -12,6 +12,12 @@ public class Customer : BaseEntity
 
     public Customer(string firstName, string lastName, Email email)
     {
+        if (string.IsNullOrWhiteSpace(firstName))
+            throw new ArgumentNullException(nameof(firstName), "first name should not be null");
+
+        if (string.IsNullOrWhiteSpace(lastName))
+            throw new ArgumentNullException(nameof(lastName),"last name should not be null");
+
         Id = Guid.NewGuid();
         FirstName = firstName;
         LastName = lastName;

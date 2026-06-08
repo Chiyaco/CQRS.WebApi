@@ -2,8 +2,6 @@
 
 public sealed class OrderItem
 {
-    //public Guid OrderId { get; private set; }
-
     public string ProductName { get; private set; }
 
     public decimal UnitPrice { get; private set; }
