@@ -11,7 +11,12 @@ public record CreateCustomerCommand(CustomerDetailDto CustomerDetailDto) : IRequ
 
 public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, Result>
 {
-    private readonly IApplicationDbContext _dbContext;
+    private readonly IApplicationDbContext? _dbContext;
+
+    public CreateCustomerCommandHandler(IApplicationDbContext dbContext)
+    {
+        _dbContext = dbContext;
+    }
 
     public async Task<Result> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
