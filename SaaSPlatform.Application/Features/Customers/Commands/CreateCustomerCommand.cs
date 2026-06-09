@@ -24,8 +24,10 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
         {
             var customerDetailDto = request.CustomerDetailDto;
 
+            var email = new Email(customerDetailDto.Email);
+
             var existedCustomer =
-                await _dbContext.Customers.FirstOrDefaultAsync(c => c.Email == customerDetailDto.Email);
+                await _dbContext.Customers.FirstOrDefaultAsync(c => c.Email.Value == email.Value);
 
             if (existedCustomer is not null)
                 return Result.Failure($"The user existed currently with this email address: {customerDetailDto.Email}");
@@ -33,7 +35,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
             var customer =
                 new Customer(customerDetailDto.FirstName,
                     customerDetailDto.LastName,
-                    customerDetailDto.Email);
+                    email);
 
             _dbContext.Customers.Add(customer);
             await _dbContext.SaveChangesAsync(cancellationToken);

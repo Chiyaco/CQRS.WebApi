@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SaaSPlatform.Application\SaaSPlatform.Application.csproj" />
+    <ProjectReference Include="..\SaaSPlatform.Infrastructure.Persistence\SaaSPlatform.Infrastructure.Persistence.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,4 @@
-﻿using SaaSPlatform.Domain.Entities.Customer;
-
-namespace SaaSPlatform.Application.Features.Customers.DTOs;
+﻿namespace SaaSPlatform.Application.Features.Customers.DTOs;
 
 public class CustomerDetailDto
 {
@@ -8,5 +6,5 @@ public class CustomerDetailDto
 
     public string LastName { get; set; } = string.Empty;
 
-    public Email? Email { get; set; }
+    public string Email { get; set; } = string.Empty;
 }
