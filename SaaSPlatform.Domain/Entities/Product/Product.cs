@@ -10,11 +10,11 @@ public class Product : BaseEntity
 
     public Product(string name, decimal price)
     {
-        if (string.IsNullOrEmpty(name))
-            throw new ArgumentException("Name is required.");
+        if (string.IsNullOrWhiteSpace(name))
+            throw new ArgumentException(nameof(name), "Name is required.");
 
         if (price <= 0)
-            throw new ArgumentException("Price must be greater than zero.");
+            throw new ArgumentException(nameof(price), "Price must be greater than zero.");
 
         Id = Guid.NewGuid();
         Name = name;
@@ -24,8 +24,8 @@ public class Product : BaseEntity
 
     public void ChangePrice(decimal price)
     {
-        if (price < 0)
-            throw new ArgumentException("Price must be greater than zero.");
+        if (price <= 0)
+            throw new ArgumentException(nameof(price), "Price must be greater than zero.");
 
         Price = price;
         Touch();
