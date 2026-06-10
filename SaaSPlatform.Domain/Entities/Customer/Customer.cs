@@ -12,22 +12,41 @@ public class Customer : BaseEntity
 
     public Customer(string firstName, string lastName, Email email)
     {
-        if (string.IsNullOrWhiteSpace(firstName))
-            throw new ArgumentNullException(nameof(firstName), "first name should not be null");
+        SetFirstName(firstName);
+        SetLastName(lastName);
 
-        if (string.IsNullOrWhiteSpace(lastName))
-            throw new ArgumentNullException(nameof(lastName),"last name should not be null");
+        Email = email;
 
         Id = Guid.NewGuid();
-        FirstName = firstName;
-        LastName = lastName;
-        Email = email;
         CreatedDateTime = DateTime.UtcNow;
     }
 
+    public void UpdateProfile(string firstName, string lastName, Email email)
+    {
+        SetFirstName(firstName);
+        SetLastName(lastName);
+        Email = email;
+        Touch();
+    }
     public void ChangeEmailAddress(Email email)
     {
         Email = email;
         Touch();
+    }
+
+    private void SetFirstName(string firstName)
+    {
+        if (string.IsNullOrWhiteSpace(firstName))
+            throw new ArgumentNullException(nameof(firstName), "first name should not be null");
+
+        FirstName = firstName;
+    }
+
+    private void SetLastName(string lastName)
+    {
+        if (string.IsNullOrWhiteSpace(lastName))
+            throw new ArgumentNullException(nameof(lastName), "last name should not be null");
+
+        LastName = lastName;
     }
 }

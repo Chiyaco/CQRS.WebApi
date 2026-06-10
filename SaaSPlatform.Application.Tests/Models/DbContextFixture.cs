@@ -14,4 +14,3 @@ public class DbContextFixture
         return new ApplicationDbContext(options);
     }
 }
-

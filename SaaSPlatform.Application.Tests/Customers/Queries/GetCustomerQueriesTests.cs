@@ -14,7 +14,7 @@ public class GetCustomerQueriesTests
     public async Task GetCustomerQueryById_Should_Throw_When_CustomerId_Is_Empty()
     {
         // Arrange 
-        
+
         await using var dbContext = _contextFixture.CreateDbContext();
         var query = new GetCustomerByIdQuery(Guid.Empty);
         var queryHandler = new GetCustomerByIdQueryHandler(dbContext);
@@ -57,7 +57,7 @@ public class GetCustomerQueriesTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        var existedCustomer = await CreateCustomerAsync(dbContext);
+        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
 
         var query = new GetCustomerByIdQuery(existedCustomer.Id);
         var queryHandler = new GetCustomerByIdQueryHandler(dbContext);
@@ -83,7 +83,7 @@ public class GetCustomerQueriesTests
         // Arrange 
 
         await using var dbContext = _contextFixture.CreateDbContext();
-        await CreateCustomerAsync(dbContext);
+        await SeedData.CreateCustomerAsync(dbContext);
 
         var query = new GetAllCustomerQuery();
         var queryHandler = new GetAllCustomerQueryHandler(dbContext);
@@ -101,16 +101,5 @@ public class GetCustomerQueriesTests
         result.Value.Should().NotBeNull();
 
         result.Value.TotalCount.Should().Be(1);
-    }
-
-    private async Task<Customer> CreateCustomerAsync(ApplicationDbContext dbContext)
-    {
-        var customer = new Customer("Chia", "Karimi", new Email("Chia.karimi@gmail.com"));
-
-        dbContext.Customers.Add(customer);
-
-        dbContext.SaveChanges();
-
-        return customer;
     }
 }
