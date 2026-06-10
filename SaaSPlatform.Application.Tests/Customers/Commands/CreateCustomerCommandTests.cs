@@ -57,6 +57,7 @@ public class CreateCustomerCommandTests
         var result = await handler.Handle(request, CancellationToken.None);
 
         // Assert
+        result.IsSuccess.Should().Be(true);
         dbContext.Customers.Should().HaveCount(1);
 
         var customer = await dbContext.Customers.FirstOrDefaultAsync();
