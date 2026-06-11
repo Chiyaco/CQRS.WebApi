@@ -2,7 +2,6 @@
 using SaaSPlatform.Application.Features.Customers.Queries;
 using SaaSPlatform.Application.Tests.Models;
 using SaaSPlatform.Domain.Entities.Customer;
-using SaaSPlatform.Infrastructure.Persistence;
 
 namespace SaaSPlatform.Application.Tests.Customers.Queries;
 
@@ -57,7 +56,7 @@ public class GetCustomerQueriesTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+        var existedCustomer = await SeedData.CreateRowDataAsync(dbContext,
             () => new Customer(
                 "Chia",
                 "Karimi",
@@ -88,11 +87,13 @@ public class GetCustomerQueriesTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        await SeedData.CreateRowDataAsync<Customer>(dbContext,
-            () => new Customer(
-                "Chia",
-                "Karimi",
-                new Email("Chia.karimi@gmail.com")));
+        await SeedData.CreateListRowDataAsync(
+            dbContext,
+            20,
+            i => new Customer(
+                $"FirstName{i}",
+                $"LastName{i}",
+                new Email($"customer{i}@example.com")));
 
         var query = new GetAllCustomerQuery();
         var queryHandler = new GetAllCustomerQueryHandler(dbContext);
@@ -109,6 +110,6 @@ public class GetCustomerQueriesTests
 
         result.Value.Should().NotBeNull();
 
-        result.Value.TotalCount.Should().Be(1);
+        result.Value.TotalCount.Should().Be(20);
     }
 }
