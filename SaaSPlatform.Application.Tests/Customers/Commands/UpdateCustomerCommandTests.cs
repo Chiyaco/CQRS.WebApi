@@ -2,6 +2,7 @@
 using SaaSPlatform.Application.Features.Customers.Commands;
 using SaaSPlatform.Application.Features.Customers.DTOs;
 using SaaSPlatform.Application.Tests.Models;
+using SaaSPlatform.Domain.Entities.Customer;
 
 namespace SaaSPlatform.Application.Tests.Customers.Commands;
 
@@ -19,7 +20,11 @@ public class UpdateCustomerCommandTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
+        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var requestDto = new UpdateCustomerCommandDto()
         {
@@ -51,7 +56,11 @@ public class UpdateCustomerCommandTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
+        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var requestDto = new UpdateCustomerCommandDto()
         {
@@ -84,7 +93,11 @@ public class UpdateCustomerCommandTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
+        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var requestDto = new UpdateCustomerCommandDto()
         {
@@ -111,7 +124,11 @@ public class UpdateCustomerCommandTests
     {
         // Arrange 
         await using var dbContext = _contextFixture.CreateDbContext();
-        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
+        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var requestDto = new UpdateCustomerCommandDto()
         {
@@ -139,7 +156,12 @@ public class UpdateCustomerCommandTests
         // Arrange 
 
         await using var dbContext = _contextFixture.CreateDbContext();
-        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
+
+        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var requestDto = new UpdateCustomerEmailAddressCommandDto
         {

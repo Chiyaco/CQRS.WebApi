@@ -57,7 +57,11 @@ public class GetCustomerQueriesTests
 
         await using var dbContext = _contextFixture.CreateDbContext();
 
-        var existedCustomer = await SeedData.CreateCustomerAsync(dbContext);
+        var existedCustomer = await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var query = new GetCustomerByIdQuery(existedCustomer.Id);
         var queryHandler = new GetCustomerByIdQueryHandler(dbContext);
@@ -83,7 +87,12 @@ public class GetCustomerQueriesTests
         // Arrange 
 
         await using var dbContext = _contextFixture.CreateDbContext();
-        await SeedData.CreateCustomerAsync(dbContext);
+
+        await SeedData.CreateRowDataAsync<Customer>(dbContext,
+            () => new Customer(
+                "Chia",
+                "Karimi",
+                new Email("Chia.karimi@gmail.com")));
 
         var query = new GetAllCustomerQuery();
         var queryHandler = new GetAllCustomerQueryHandler(dbContext);

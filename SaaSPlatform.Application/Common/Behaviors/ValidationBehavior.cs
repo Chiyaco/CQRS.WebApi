@@ -4,7 +4,7 @@ using MediatR;
 namespace SaaSPlatform.Application.Common.Behaviors;
 
 public class ValidationBehavior<TRequest, TResponse>
-    : IPipelineBehavior<TRequest, TResponse>
+    : IPipelineBehavior<TRequest, TResponse> where TRequest : notnull
 {
     private readonly IEnumerable<IValidator<TRequest>> _validators;
 
@@ -26,6 +26,6 @@ public class ValidationBehavior<TRequest, TResponse>
         if (failures.Any())
             throw new ValidationException(failures);
 
-        return await next();
+        return await next(cancellationToken);
     }
 }
